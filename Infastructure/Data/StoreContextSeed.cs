@@ -11,6 +11,9 @@ namespace Infastructure.Data
 {
     public class StoreContextSeed
     {
+        // Static method to allow pulling data to seed the DB.
+        // Called from the API project -> Program Main, after "build" and before "run"
+        // (along with the creation/migration of the DB there)
         public static async Task SeedAsync(StoreContext context, ILoggerFactory loggerFactory)
         {
             try

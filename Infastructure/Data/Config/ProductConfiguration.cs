@@ -8,6 +8,9 @@ namespace Infastructure.Data.Config
     {
         public void Configure(EntityTypeBuilder<Core.Entities.Product> builder)
         {
+            // Adds specific direction for EF in the creation/migration of DB information
+            // Called from StoreContext OnModelCreating.
+
             // Column config
             builder.Property(p => p.Id).IsRequired();
             builder.Property(p => p.Name).IsRequired().HasMaxLength(100);

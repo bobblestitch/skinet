@@ -16,9 +16,12 @@ namespace Infastructure.Data
 
         protected override void OnModelCreating(ModelBuilder modelBuilder)
         {
-            // Include the custom EF DB config from the config folder
             base.OnModelCreating(modelBuilder);
 
+            // Include the custom EF DB config from the config folder
+            // Uses all IEntityTypeConfiguration<x> from an assembly
+            // Infastructure/Data/Config/ProductConfiguration
+            // Doing this keeps the entities "clean", with the markup/config in it's own section.
             modelBuilder.ApplyConfigurationsFromAssembly(Assembly.GetExecutingAssembly());
         }
     }
